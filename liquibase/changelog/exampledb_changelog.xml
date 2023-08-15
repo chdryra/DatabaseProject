@@ -11,5 +11,8 @@
         http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
 >
-<include file="changelog-add-person-company-tables.sql"/>
+    <include file="changelog-add-person-company-tables.sql"/>
+    <changeSet author="chdryra" id="tag_version_0_1_0">
+        <tagDatabase tag="version_0.1.0" />
+    </changeSet>
 </databaseChangeLog>

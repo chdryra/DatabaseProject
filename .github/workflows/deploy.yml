@@ -37,6 +37,4 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends postgresql-client
 
-    - run: psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb
-
-    - run: \l
+    - run: psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb -c '\l'

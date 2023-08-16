@@ -21,16 +21,12 @@ jobs:
       with:
         creds: ${{ secrets.CLOUD_SQL_PROXY }}
         instance: fast-api-230516:europe-west2:postgres-db-1
-#
-#    - run: |
-#          sudo apt-get update
-#          sudo apt-get install --yes --no-install-recommends postgresql-client
-#
-#    - run: psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb
 
-    - run: sudo apt-get install --yes --no-install-recommends telnet
+    - run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends postgresql-client
 
-    - run: telnet 127.0.0.1 5432
+    - run: psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb
 
     - uses: liquibase-github-actions/update@v4.23.1
       with:
@@ -40,3 +36,4 @@ jobs:
         showSummary: "verbose"
         username: "postgres"
         password: "kulgasimsim"
+        logLevel: INFO

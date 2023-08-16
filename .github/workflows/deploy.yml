@@ -36,4 +36,3 @@ jobs:
         showSummary: "verbose"
         username: "postgres"
         password: "kulgasimsim"
-        logLevel: INFO

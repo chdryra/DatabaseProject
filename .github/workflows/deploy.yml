@@ -34,8 +34,8 @@ jobs:
         instance: fast-api-230516:europe-west2:postgres-db-1
 
     - run: |
-          apt-get update
-          apt-get install --yes --no-install-recommends postgresql-client
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends postgresql-client
 
     - run: |
           psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb

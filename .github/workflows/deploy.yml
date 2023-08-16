@@ -16,17 +16,6 @@ jobs:
     steps:
     - uses: 'actions/checkout@v3'
 
-#    - id: 'auth'
-#      uses: 'google-github-actions/auth@v1'
-#      with:
-#        workload_identity_provider: 'projects/81869977343/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider'
-#        service_account: 'default-service-account@fast-api-230516.iam.gserviceaccount.com'
-#
-#    - name: 'Set up Cloud SDK'
-#      uses: 'google-github-actions/setup-gcloud@v1'
-#      with:
-#        version: '>= 363.0.0'
-
     - name: 'Connect to cloud sql proxy'
       uses: mattes/gce-cloudsql-proxy-action@v1
       with:
@@ -38,3 +27,12 @@ jobs:
           sudo apt-get install --yes --no-install-recommends postgresql-client
 
     - run: psql postgresql://postgres:kulgasimsim@127.0.0.1:5432/exampledb -c '\l'
+
+    - uses: liquibase-github-actions/update@v4.23.1
+      with:
+        changelogFile: "liquibase/changelog/exampledb_master.xml"
+        url: "jdbc:postgresql://localhost:5432/exampledb"
+        rollbackOnError: "true"
+        showSummary: "verbose"
+        username: "postgres"
+        password: "kulgasimsim"

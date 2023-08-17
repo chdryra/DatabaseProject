@@ -28,4 +28,4 @@ jobs:
 
     - run: |
         cd liquibase/changelog
-        liquibase update --username=postgres --password=kulgasimsim
+        liquibase update --username=${{ secrets.DB_USERNAME }} --password=${{ secrets.DB_PASSWORD }}

@@ -16,11 +16,11 @@ jobs:
     steps:
     - uses: 'actions/checkout@v3'
 
-    - name: 'Connect to cloud sql proxy'
-      uses: mattes/gce-cloudsql-proxy-action@v1
-      with:
-        creds: ${{ secrets.CLOUD_SQL_PROXY }}
-        instance: fast-api-230516:europe-west2:postgres-db-1
+#    - name: 'Connect to cloud sql proxy'
+#      uses: mattes/gce-cloudsql-proxy-action@v1
+#      with:
+#        creds: ${{ secrets.CLOUD_SQL_PROXY }}
+#        instance: fast-api-230516:europe-west2:postgres-db-1
 
     - run: |
           sudo apt-get update
